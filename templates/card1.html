@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=10, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename ='CSS/card1.css') }}">
+    <title>Payment</title>
+</head>
+    
+    <body style="background-color:dodgerblue">
+
+
+      <h1>Hello,  {{ post }} <br>
+        Paying to the {{ nxt }}<br>
+        {{ message }}
+    </h1>
+
+    
+
+    <div class="container">
+        <form method="post", action="##">
+        <div class="card-details">
+            <h2>Payment Gateway</h2>
+            <div class="card-num-field-group">
+            <label for = "Card"><b>Card Number</b></label><br>
+            <input type="text" name="cardNumber",  class="card-num-field" placeholder="xxxx-xxxx-xxxx-xxxx" maxlength="19">
+        </div>
+
+
+        <div class="date-field-group">
+            <label><b>Expiry Date</b></label><br>
+            <input type="date" name="expiryDate" class="date-field" min="2021-01" max="2029-01">
+            
+        </div>
+
+
+        <div class="cvv-field-group">
+            <label><b>CVV</b></label><br>
+            <input type="password" name="CVVNumber" class="cvv-field" placeholder="xxx" maxlength="3">
+            
+        </div>
+
+        <div class="name-field-group">
+            <label><b>Card Holder Name</b></label><br>
+            <input type="text" name="CardHolderName" value= "{{ post }}" class="name-field">
+        </div>
+
+           
+         <div class="name-field-group">
+            <label><b>Amount in rupees</b></label><br>
+            <input type="number" step= "0.01" name="AmountPay" class="name-field" placeholder="Indian rupee" min="0" max="100000000.00" maxlength="8">
+        </div>
+
+            <!-- <button type="button" value="submit" class="pay-btn">Pay Now</button> -->
+
+        <div>
+            <button type="submit"  value="submit" class="pay-btn">Pay Now</button>
+        </div>
+    </div>
+    </form>
+</div>
+</body>
+</html>
