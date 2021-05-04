@@ -37,18 +37,28 @@ TPSipaddress = '192.168.43.99'
 
 payProInstance = socket(AF_INET, SOCK_STREAM)
 TPSsocket = socket(AF_INET,SOCK_STREAM)
-TPSsocket.connect((TPSipaddress, TPSportnumber))
+
+try:
+	TPSsocket.connect((TPSipaddress, TPSportnumber))
+	print("Connection accepted with TPS...:)")
+except:
+	print("Connection not accepted with TPS!!!")
+
+
+# TPSsocket.connect((TPSipaddress, TPSportnumber))
 
 payProInstance.bind(('',payProPortNumber))
 payProInstance.listen(1)
 
 
 print("Payment processor is listening...")
+# TPSsocket.connect((TPSipaddress, TPSportnumber))
 while 1:
 	
 	paygateInstance, paygetAddress = payProInstance.accept()
+
 	
-	print("Connection excepted...:)")
+	# print("Connection accepted...:)")
 	
 	# recieving user data 
 
@@ -116,7 +126,11 @@ while 1:
 			Plaintext=Plaintext +','+ packet[i]
 		
 		#print('plaintext',Plaintext)
-
+		# try:
+		# 	TPSsocket.connect((TPSipaddress, TPSportnumber))
+		# 	print("Connection accepted with TPS...:)")
+		# except:
+		# 	print("Connection not accepted with TPS!!!")
 		#Sending Packet to TPS layer 1
 		shkey=TPSsocket.recv(2048)
 
@@ -130,11 +144,11 @@ while 1:
 
 	else:
 		#paygateInstance.send("False".encode())
-		shkey=TPSsocket.recv(2048)
-		Plaintext='False'
-		encrypteddata=str(AES_encrypt(shkey,Plaintext))
-		TPSsocket.send(encrypteddata.encode())
-		paygateInstance.close()
+		# shkey=TPSsocket.recv(2048)
+		# Plaintext='False'
+		# encrypteddata=str(AES_encrypt(shkey,Plaintext))
+		# TPSsocket.send(encrypteddata.encode())
+		# paygateInstance.close()
 
 		print("Wrong detalis")
 

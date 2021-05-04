@@ -53,12 +53,9 @@ TpsPortNumber = 9980
 
 TpsServer = socket(AF_INET, SOCK_STREAM)
 
-TpsServer.bind(('', TpsPortNumber))
+TpsServer.bind(('192.168.43.99', TpsPortNumber))
 TpsServer.listen(1)
 
-serverName = '169.254.142.108'
-serverPort = 9048
-clientSocket = socket(AF_INET, SOCK_STREAM)
 
 print("TPS is ready to connected with pp ...")
 
@@ -72,11 +69,23 @@ Hence if you can add all your socket connection and processes into this while lo
 amount=1000
 amount1=amount*1.1
 
+try:
+    ppInstance, ppAddress = TpsServer.accept()
+    print("Connection accepted with pp...")
+except:
+    print("Connection not accepted!!!")
+
 
 while 1:
-    ppInstance, ppAddress = TpsServer.accept()
 
-    print("Connection established...")
+    # try:
+    #     ppInstance, ppAddress = TpsServer.accept()
+    #     print("Connection accepted with pp...")
+    # except:
+    #     print("Connection not accepted!!!")
+
+    
+    # print("Connection established...")
 
     # todo:- Receiving the list 
     shky=share_key()
@@ -134,41 +143,9 @@ while 1:
         encrypteddata=str(AES_encrypt(sharekey,Plaintext))
         ppInstance.send(encrypteddata.encode())
 
-    ppInstance.close()
+    # ppInstance.close()
     # ppInstance.send("1".encode())
 
 
 # Todo:- ADD all below work inside the while loop such that it can communicate properly with bank1, and bank2. 
-
-# Debit operation
-sentence = '81309831 debit '+str(amount1)
-
-clientSocket.connect((serverName,serverPort))
-clientSocket.send(sentence.encode())
-
-b=datetime.datetime.now()
-
-clientSocket.recv(2048)
-print(" Elapsed time : ")
-
-print(b-a)
-
-clientSocket.close()
-
-# client side
-serverPort = 12000
-clientSocket = socket(AF_INET, SOCK_STREAM)
-
-# Credit operation
-sentence = '81309832 credit '+str(amount)
-
-clientSocket.connect((serverName,serverPort))
-clientSocket.send(sentence.encode())
-clientSocket.recv(2048)
-
-b=datetime.datetime.now()
-print(" Elapsed time : ")
-print(b-a)
-
-clientSocket.close()
 
