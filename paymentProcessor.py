@@ -37,7 +37,7 @@ TPSipaddress = '192.168.43.99'
 
 payProInstance = socket(AF_INET, SOCK_STREAM)
 TPSsocket = socket(AF_INET,SOCK_STREAM)
-
+TPSsocket.connect((TPSipaddress, TPSportnumber))
 
 payProInstance.bind(('',payProPortNumber))
 payProInstance.listen(1)
@@ -47,7 +47,7 @@ print("Payment processor is listening...")
 while 1:
 	
 	paygateInstance, paygetAddress = payProInstance.accept()
-	TPSsocket.connect((TPSipaddress, TPSportnumber))
+	
 	print("Connection excepted...:)")
 	
 	# recieving user data 
@@ -119,7 +119,10 @@ while 1:
 
 		#Sending Packet to TPS layer 1
 		shkey=TPSsocket.recv(2048)
-		encrypteddata=str(AES_encrypt(shkey,Plaintext))
+
+		# TODO :- FAULT CORRECTION
+		encrypteddata=str(AES_encrypt(shkey.decode(),Plaintext))
+
 		TPSsocket.send(encrypteddata.encode())
 
 		
@@ -173,7 +176,7 @@ while 1:
 	print("Received feedback about otp")
 
 
-	TPSsocket.close()
+	# TPSsocket.close()
 	otpinstance.close()
 
     
