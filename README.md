@@ -70,6 +70,6 @@ After that it will show the final authentication page (OTP) page. That will look
 |5.|Amount| (Any amount)|
 
 In each step, check the terminal of App.py. After that, there will be a page for OTP. Check the paymentProcessor.py terminal to put OTP. Put correct OTP.\
-For other input, you may check the App.py for another register user details.\ 
+For other input, you may check the App.py for another register user details.
 [A video for demo.](https://youtu.be/H1iPhbF3TSY)\
 Thank you
