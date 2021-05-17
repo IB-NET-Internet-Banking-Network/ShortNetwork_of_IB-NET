@@ -30,6 +30,8 @@ This folder contains the all html files.
 1. card1.html is for payment gateway pay now option.
 2. loginpage.html is for user authentication.
 3. otp.html is for otp check.
+4. finalResult.html for showing final feedback. 
+
 
 ## static\CSS
 It contains all css style files
@@ -51,7 +53,7 @@ After that it will show the final authentication page (OTP) page. That will look
 
 ![paymentGateway3](https://user-images.githubusercontent.com/47395502/112280281-dc1ab980-8caa-11eb-9764-05dbfa46484d.gif)
 
-
+## How to use it?
 1. First start the App.py file.
 2. Start the TPS_LAYER1.py.
 3. Start the paymentProcessor.py.
@@ -67,7 +69,7 @@ After that it will show the final authentication page (OTP) page. That will look
 |4.|Card holder name| MANAS KUMAR MISHRA|
 |5.|Amount| (Any amount)|
 
-In each step, check the terminal of App.py. After that, there will be a page for OTP. Check the paymentProcessor.py terminal to put OTP. Put correct OTP.
-
-[A video for demo](https://youtu.be/H1iPhbF3TSY)\
+In each step, check the terminal of App.py. After that, there will be a page for OTP. Check the paymentProcessor.py terminal to put OTP. Put correct OTP.\
+For other input, you may check the App.py for another register user details.\ 
+[A video for demo.](https://youtu.be/H1iPhbF3TSY)\
 Thank you
