@@ -2,8 +2,6 @@
 A very short simulation for internet banking system 
 It contains important points for a Internet Banking Network system from user to bank.
 
-Initial Author :- Manas Kumar Mishra\
-Team mates :-  Ganesh T S and Karthika Rajesh
 ## App.py
 
 It is hosting full payment gateway, in that user can put their input for the payment gateway.
@@ -45,4 +43,5 @@ After that it will show the final authentication page (OTP) page. That will look
 ![paymentGateway3](https://user-images.githubusercontent.com/47395502/112280281-dc1ab980-8caa-11eb-9764-05dbfa46484d.gif)
 
 
+[A video for demo](https://youtu.be/H1iPhbF3TSY)
 Thank you
